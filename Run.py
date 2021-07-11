@@ -148,7 +148,7 @@ Bag of Words image matching starting. Loading datasets..\n")
     # To force make predictions, raise an exception in the try block
     
     try:
-        preds = np.genfromtxt ('predictions_32039131_final.csv', delimiter=",")
+        preds = np.genfromtxt ('predictions_final.csv', delimiter=",")
         print("Predictions successfully loaded")
     except:
         print("Prediction file not found/unsuccessful. Making predictions (24+ hours).")
