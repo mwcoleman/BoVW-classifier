@@ -35,7 +35,7 @@ Bag of Words image matching starting. Loading datasets..\n")
     except:
         print("Error: train and test image data files not found.\nLocation needed:\n./data/fashion-mnist_train.csv\n./data/fashion-mnist_test.csv")
         print("\nLoading test_labels only and using pre-computed model..")
-        preds = np.genfromtxt('predictions_32039131_final.csv', delimiter=",")
+        preds = np.genfromtxt('predictions_final.csv', delimiter=",")
         test_labels = np.genfromtxt('./data/test_labels.csv', delimiter=",")
         metrics = GetMetrics(preds, test_labels)
         sys.exit(1)
