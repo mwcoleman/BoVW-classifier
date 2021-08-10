@@ -11,15 +11,15 @@ Representative cluster images are saved in './centroid_images'
 Note: The algorithm runs three independent BoW extraction, clustering and predictions, and uses MajorityVote() to 
 obtain final predictions. This improved the accuracy from 79% to 82% in the final test.
 
-The clustering and prediction (MatchHistogram) process takes considerable time (24h+ on a modern desktop),
-by default the RunAll script loads the vocab and the prediction files. (all that is needed is the predictions actually).
+The clustering and prediction (MatchHistogram) process takes considerable time (24h+ on Ryzen 5 3600, 32gb Ram),
+by default the RunAll script loads the vocab and the prediction files.
 Standard flow:
 - If datasets exist, load into memory and extract features
-    else: load the (precomputed) predictions_32039131.csv and compute metrics directly, quit script.
+    else: load the (precomputed) predictions.csv and compute metrics directly, quit script.
 - If vocab database exists, load the BoW dictionaries (3)
     else: generate the BoW dictionaries for each feature set
 - If prediction file exists; load it 
-    else: make predictions (24+ hours)
+    else: make predictions (24+ h)
 - Display performance metrics
 - End.
 
@@ -38,7 +38,7 @@ km=100, patch=28, stride=1, cells=9, blocks=2, orients=12
  cells is pixels per cell for HOG, blocks is cells per block, orientations is # bins for HOG
 
 Representing images as BoW representation:
-All images in train and test sets have histograms (or vectors) computed based on a soft assignment
+All images in train and test sets have histograms (attribution vectors) computed based on a soft assignment
 of the dictionary words, inversely proportional to the distance between image feature vector and each
 BoW word vector.
 
